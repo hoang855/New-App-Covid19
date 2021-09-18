@@ -1,0 +1,57 @@
+.Highlight-container {
+  width: 100%;
+  margin: 20px 0px;
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.Highlight-body {
+  width: 32%;
+  height: 150px;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px 0px #88888826;
+  background-color: #74b9ff;
+}
+
+.Highlight-body-color {
+  width: 100%;
+  height: 15px;
+}
+
+.color-3 {
+  background-color: #636e72;
+}
+
+.color-2 {
+  background-color: #55efc4;
+}
+
+.color-1 {
+  background-color: red;
+}
+
+.Highlight-body h1 {
+  margin: 20px 0px;
+  color: white;
+}
+
+.Highlight-body-h3-1 {
+    margin: 20px 0px;
+    color: rgb(255, 0, 0);
+    font-size: 30px;
+}
+
+.Highlight-body-h3-2 {
+    margin: 20px 0px;
+    color: #55efc4;
+    font-size: 30px;
+}
+
+.Highlight-body-h3-3 {
+    margin: 20px 0px;
+    color: #636e72;
+    font-size: 30px;
+}
