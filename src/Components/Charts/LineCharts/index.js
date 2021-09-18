@@ -1,60 +1,64 @@
 import HighchartsReact from "highcharts-react-official";
-import Highchart from 'highcharts';
+import Highchart from "highcharts";
 import React, { useEffect, useState } from "react";
-
+import moment from "moment";
 const generateOptions = (data) => {
-  const categories = [];
-
+  const categories = data.map((item) => moment(item.Date).format('DD/MM/YYYY'));
   return {
     chart: {
       height: 500,
     },
     title: {
-      text: "Tổng Ca Nhiểm",
+      text: "Tổng ca nhiễm",
     },
     xAxis: {
       categories: categories,
       crosshair: true,
     },
-    color: ["#F3585B"],
+    colors: ["#F3585B"],
     yAxis: {
       min: 0,
       title: {
-        test: null,
+        text: null,
+      },
+      labels: {
+        align: "right",
       },
     },
     tooltip: {
       headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-      poinFormat:
-        '<tr><td style="color:{series.color};padding:0">{seris.name}: </td>' +
+      pointFormat:
+        '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
         '<td style="padding:0"><b>{point.y} ca</b></td></tr>',
-      footerFormat: "</table",
+      footerFormat: "</table>",
       shared: true,
       useHTML: true,
     },
     plotOptions: {
-      colunm: {
+      column: {
         pointPadding: 0.2,
         borderWidth: 0,
       },
     },
     series: [
       {
-        name: "Tổng Ca Nhiểm",
-        data: data.map((item) => item.confirmed),
+        name: "Tổng Ca nhiễm",
+        data: data.map((item) => item.Confirmed),
       },
     ],
   };
 };
 
 const LineCharts = ({ data }) => {
+  console.log("data", { data });
   const [options, setoptions] = useState({});
 
-  useEffect(()=>{
-    setoptions(generateOptions(data))
-    
-  }, [data])
+  useEffect(() => {
+    setoptions(generateOptions(data));
+  }, [data]);
   return <HighchartsReact highcharts={Highchart} options={options} />;
+
+  
 };
 
 export default LineCharts;
