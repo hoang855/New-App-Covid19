@@ -12,9 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     API.fetcountries().then((res) => {
-      console.log({ res });
       setcountries(res.data);
-
       setSelectedCountryId('vn')
     });
   }, []);
@@ -28,9 +26,8 @@ const Home = () => {
       const { Slug } = countries.find(
         (country) => country.ISO2.toLowerCase() === selectedCountryId
       );
-      // get Api
       API.getCountries(Slug).then((res) => {
-        // Xóa arr Cuối
+        // Xóa arr Cuối mảng data trả về
         res.data.pop();
         setReport(res.data);
       });
@@ -39,8 +36,12 @@ const Home = () => {
 
   return (
     <>
-      <CountrySelector countries={countries} handleOnChange={handleOnChange} value={selectedCountryId}/>
-      <Highlight report={report} />
+      <CountrySelector
+        countries={countries}
+        handleOnChange={handleOnChange}
+        value={selectedCountryId}
+      />
+      <Highlight report={report} selectedCountryId={selectedCountryId}/>
       <Summary countryId={selectedCountryId} report={report} />
     </>
   );

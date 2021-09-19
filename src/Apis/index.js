@@ -1,4 +1,5 @@
 import axios from "axios";
+// import "@highcharts/map-collection"
 
 const baseURl = "https://api.covid19api.com";
 const API = {

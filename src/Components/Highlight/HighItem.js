@@ -1,6 +1,6 @@
 import "./Highlight.css";
 
-const HighItem = ({ title, type,  colorclss ,count }) => {
+const HighItem = ({ title, type, colorclss, count }) => {
   return (
     <div className="Highlight-body">
       <div className={`Highlight-body-color ${type}`}></div>

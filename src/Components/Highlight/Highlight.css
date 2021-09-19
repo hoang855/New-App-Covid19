@@ -1,7 +1,6 @@
 .Highlight-container {
   width: 100%;
   margin: 20px 0px;
-  /* background-color: aqua; */
   display: flex;
   justify-content: space-between;
 }
@@ -13,7 +12,6 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0px 5px 15px 0px #88888826;
-  background-color: #74b9ff;
 }
 
 .Highlight-body-color {
@@ -35,7 +33,7 @@
 
 .Highlight-body h1 {
   margin: 20px 0px;
-  color: white;
+  color: #0096C2;
 }
 
 .Highlight-body-h3-1 {
