@@ -2,23 +2,26 @@ import React, { Component, useEffect, useState } from "react";
 import CountrySelector from "../../Components/CountrySelector";
 import Highlight from "../../Components/Highlight";
 import Summary from "../../Components/Summary";
-
 import API from "../../Apis";
+import { sortBy } from "lodash";
 
 const Home = () => {
   const [countries, setcountries] = useState([]);
   const [selectedCountryId, setSelectedCountryId] = useState("");
   const [report, setReport] = useState([]);
+  const [getsummary, setgetsummary] = useState([]);
 
   useEffect(() => {
     API.fetcountries().then((res) => {
-      setcountries(res.data);
-      setSelectedCountryId('vn')
+      const { data } = res;
+      const sorcountry = sortBy(data, "Country");
+      setcountries(sorcountry);
+      setSelectedCountryId("vn");
     });
   }, []);
 
   const handleOnChange = (e) => {
-    setSelectedCountryId(e.target.value);
+    setSelectedCountryId(e);
   };
 
   useEffect(() => {
@@ -34,6 +37,12 @@ const Home = () => {
     }
   }, [countries, selectedCountryId]);
 
+  useEffect(() => {
+    API.getsummary().then((res) => {
+      setgetsummary(res.data.Countries);
+    });
+  }, []);
+
   return (
     <>
       <CountrySelector
@@ -41,8 +50,8 @@ const Home = () => {
         handleOnChange={handleOnChange}
         value={selectedCountryId}
       />
-      <Highlight report={report} selectedCountryId={selectedCountryId}/>
-      <Summary countryId={selectedCountryId} report={report} />
+      <Highlight report={report} selectedCountryId={selectedCountryId} />
+      <Summary countryId={selectedCountryId} report={report} getsummary={getsummary}/>
     </>
   );
 };

@@ -10,5 +10,9 @@ const API = {
   getCountries: (country) => {
     return axios.get(`${baseURl}/dayone/country/${country}`);
   },
+
+  getsummary: () => {
+    return axios.get(`https://api.covid19api.com/summary`);
+  },
 };
 export default API;

@@ -1,6 +1,5 @@
 .layout-cenr{
     width: 100%;
-    background-color: #74b9ff;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -9,7 +8,9 @@
 }
 
 .layout-cenr h1{
-    font-size: 35px;
+    font-size: 40px;
     color: red;
     padding: 30px 10px;
+    margin: 0;
+    font-weight: bold;
 }

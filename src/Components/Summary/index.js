@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./Summary.css";
 import LineCharts from "../Charts/LineCharts";
 import HighMaps from "../Charts/HighMaps";
-import API from "../../Apis";
+// import LineTransfers from "../Charts/LineTransfers";
+import LineTransfers from "../Charts/LineTransfers";
 
-const Summary = ({ countryId, report, selectedCountryId }) => {
+const Summary = ({ countryId, report, getsummary }) => {
   const [mapData, setMapData] = useState({});
-
-  console.log("hello Data", { mapData });
-
   useEffect(() => {
     if (countryId) {
       import(
@@ -22,8 +20,15 @@ const Summary = ({ countryId, report, selectedCountryId }) => {
       <div className="Summary-body-left">
         <LineCharts data={report} className="body-left-paddw100" />
       </div>
-      <div className="Summary-body-right">
-        <HighMaps mapData={mapData} />
+
+      <div className="let-felex">
+        <div className="Summary-body-right">
+          <HighMaps mapData={mapData} />
+        </div>
+
+        <div className="Summary-body-right-right">
+          <LineTransfers getsummary={getsummary}/>
+        </div>
       </div>
     </div>
   );

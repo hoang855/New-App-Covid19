@@ -1,3 +1,25 @@
 .form-css{
-    margin: 10px 0px;
+    box-shadow: 0px 5px 15px 0px #88888826;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.select-style{
+    width: 200px;
+    box-shadow: 0px 5px 15px 0px #88888826;
+
+}
+
+.h3-flex h3{
+    margin: 0;
+    font-weight: 700;
+    color: #0096C2;
+}
+
+.h3-flex{
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 5px 15px 0px #88888826;
+    padding: 0px 5px;
 }

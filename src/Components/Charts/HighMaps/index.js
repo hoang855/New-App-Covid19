@@ -47,11 +47,8 @@ const HighMaps = ({ mapData }) => {
 
   const chartRef = useRef(null);
 
-  console.log("Data trả về", { mapData });
-
   useEffect(() => {
     if (mapData && Object.keys(mapData).length) {
-      console.log({ mapData });
       const fakeData = mapData.features.map((feature, index) => ({
         key: feature.properties["hc-key"],
         value: index,
