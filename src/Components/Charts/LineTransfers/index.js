@@ -7,15 +7,17 @@ const LineTransfers = ({ getsummary }) => {
 
       <div className="LineTransfers-sreo">
         <table className="LineTransfers-sreo-table">
-          {getsummary.map((item) => {
-            const { Slug, TotalConfirmed } = item;
-            return (
-              <tr className="color-tr2">
-                <td>{Slug}</td>
-                <td>{TotalConfirmed}</td>
-              </tr>
-            );
-          })}
+          <tbody>
+            {getsummary.map((item, index) => {
+              const { Slug, TotalConfirmed } = item;
+              return (
+                <tr key={index}>
+                  <td>{Slug}</td>
+                  <td>{TotalConfirmed}</td>
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     </div>

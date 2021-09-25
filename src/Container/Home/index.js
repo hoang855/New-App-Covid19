@@ -12,8 +12,8 @@ const Home = () => {
   const [getsummary, setgetsummary] = useState([]);
 
   useEffect(() => {
-    API.fetcountries().then((res) => {
-      const { data } = res;
+    API.fetcountries().then((ele) => {
+      const { data } = ele;
       const sorcountry = sortBy(data, "Country");
       setcountries(sorcountry);
       setSelectedCountryId("vn");
@@ -29,17 +29,16 @@ const Home = () => {
       const { Slug } = countries.find(
         (country) => country.ISO2.toLowerCase() === selectedCountryId
       );
-      API.getCountries(Slug).then((res) => {
-        // Xóa arr Cuối mảng data trả về
-        res.data.pop();
-        setReport(res.data);
+      API.getCountries(Slug).then((ele) => {
+        ele.data.pop();
+        setReport(ele.data);
       });
     }
   }, [countries, selectedCountryId]);
 
   useEffect(() => {
-    API.getsummary().then((res) => {
-      setgetsummary(res.data.Countries);
+    API.getsummary().then((ele) => {
+      setgetsummary(ele.data.Countries);
     });
   }, []);
 
@@ -51,7 +50,11 @@ const Home = () => {
         value={selectedCountryId}
       />
       <Highlight report={report} selectedCountryId={selectedCountryId} />
-      <Summary countryId={selectedCountryId} report={report} getsummary={getsummary}/>
+      <Summary
+        countryId={selectedCountryId}
+        report={report}
+        getsummary={getsummary}
+      />
     </>
   );
 };

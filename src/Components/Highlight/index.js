@@ -23,8 +23,6 @@ const Highlight = ({ report }) => {
       colorclss: "Highlight-body-h3-3",
     },
   ];
-
-  console.log("report", data.Recovered);
   return (
     <div className="Highlight-container">
       {sammary.map((item, index) => (

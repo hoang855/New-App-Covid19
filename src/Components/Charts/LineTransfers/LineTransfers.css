@@ -36,6 +36,6 @@
   text-align: left;
 }
 
-.color-tr2 {
-  background-color: #f7f7f7;
+tr:nth-child(even){
+  background-color: #f3f3f3;
 }
